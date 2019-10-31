@@ -57,6 +57,7 @@
     "core-js": "^2.5.4",
     "firebase": "^7.2.2",
     "rxjs": "~6.4.0",
+    "slideout": "^1.0.1",
     "zone.js": "^0.9.1"
   },
   "devDependencies": {

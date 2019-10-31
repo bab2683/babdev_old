@@ -12,8 +12,4 @@ import { routes } from './pages/routes';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-  constructor() {
-    console.log(SidebarModule);
-  }
-}
+export class AppModule {}
