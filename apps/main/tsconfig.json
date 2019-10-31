@@ -1,7 +1,11 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "types": ["node", "jest"]
+    "baseUrl": "./",
+    "types": ["node", "jest"],
+    "paths": {
+      "@env/*": ["./src/environments/*"]
+    }
   },
   "include": ["**/*.ts"]
 }
