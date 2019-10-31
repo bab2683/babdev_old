@@ -13,7 +13,7 @@
   "scripts": {
     "ng": "ng",
     "nx": "nx",
-    "start": "ng serve -o --port 4400",
+    "start": "npm run generate-apps-tsconfig && ng serve -o --port 4400",
     "build": "ng build",
     "test": "ng test",
     "test:cov": "ng test --codeCoverage=true",
@@ -35,7 +35,8 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "cz": "git-cz"
+    "cz": "git-cz",
+    "generate-apps-tsconfig": "node ./scripts/generate-app-tsconfig.js"
   },
   "private": true,
   "dependencies": {
@@ -96,7 +97,9 @@
       "scopeList": [
         "config",
         "routing",
+        "scripts",
         "setup",
+        "sidebar",
         "ssr",
         "tests",
         "workflows"
