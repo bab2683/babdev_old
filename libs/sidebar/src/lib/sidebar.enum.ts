@@ -1,4 +1,5 @@
 export enum SidebarStatus {
   OPEN = 'open',
-  CLOSE = 'close'
+  CLOSE = 'close',
+  NOT_CREATED = 'not created'
 }

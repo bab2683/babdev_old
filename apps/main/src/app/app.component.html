@@ -1,4 +1,9 @@
-<babdev-sidebar #menu></babdev-sidebar>
-<main #panel>
-  <router-outlet></router-outlet>
-</main>
+<babdev-sidebar>
+  <div class="page">
+    <main class="page__content">
+      <div class="w-100">
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+  </div>
+</babdev-sidebar>

@@ -1,6 +1,9 @@
 const { execSync } = require('child_process');
 const { writeFileSync } = require('fs');
 
+const librariesPrefix = '@babdev/';
+const pathToApps = 'apps';
+
 const apps = execSync('(cd apps/ && ls)')
   .toString()
   .match(/(.+)/gm)
@@ -9,10 +12,11 @@ const apps = execSync('(cd apps/ && ls)')
 
 const rootTsConfigPaths = require(`../tsconfig.json`).compilerOptions.paths;
 
-// Change the paths
-const modifiedPaths = Object.keys(rootTsConfigPaths).reduce((pathObj, currentPath) => {
-  pathObj[currentPath] = [rootTsConfigPaths[currentPath][0].replace('libs', '../../libs')];
-
+// Only libraries paths
+const onlyLibrariesPaths = Object.keys(rootTsConfigPaths).reduce((pathObj, currentPath) => {
+  if (currentPath.indexOf(librariesPrefix) > -1) {
+    pathObj[currentPath] = rootTsConfigPaths[currentPath];
+  }
   return pathObj;
 }, {});
 
@@ -22,13 +26,30 @@ apps.forEach(app => {
 
   const appTsConfigFile = require(tsConfigPath);
 
+  const localPaths = appTsConfigFile.compilerOptions.paths;
+
+  // Change local paths
+  const modifiedLocalPaths = Object.keys(localPaths).reduce((pathObj, currentPath) => {
+    // Ignore libraries paths
+    if (currentPath.indexOf(librariesPrefix) === -1) {
+      pathObj[currentPath] = localPaths[currentPath].map(localPath => {
+        // Change only unchanged paths
+        if (localPath.indexOf(pathToApps) === -1) {
+          return `${pathToApps}/${app}/${localPath}`;
+        }
+        return localPath;
+      });
+    }
+    return pathObj;
+  }, {});
+  appTsConfigFile.compilerOptions.baseUrl = '../../';
   appTsConfigFile.compilerOptions.paths = {
-    ...appTsConfigFile.compilerOptions.paths,
-    ...modifiedPaths
+    ...modifiedLocalPaths,
+    ...onlyLibrariesPaths
   };
 
   // Save changes
   writeFileSync(`apps/${app}/tsconfig.json`, JSON.stringify(appTsConfigFile));
 });
 
-console.log('the tsconfig of all apps have been updated');
+console.log('The tsconfig file of all apps have been updated');

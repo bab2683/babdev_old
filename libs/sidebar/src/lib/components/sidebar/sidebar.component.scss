@@ -1,0 +1,48 @@
+.menu {
+}
+
+.open-btn {
+  position: fixed;
+  top: 5px;
+  z-index: 1;
+
+  &--hidden {
+    display: none;
+  }
+}
+
+.panel {
+  background-color: blue;
+}
+
+// SLIDEOUT STYLES
+.slideout-menu {
+  background-color: green;
+  bottom: 0;
+  display: none;
+  left: 0;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 256px;
+  z-index: 0;
+
+  :host-context(.slideout-open) & {
+    display: block;
+  }
+}
+
+.slideout-panel {
+  background-color: #fff;
+  position: relative;
+  will-change: transform;
+  z-index: 1;
+}
+
+.slideout-open,
+.slideout-open body,
+.slideout-open .slideout-panel {
+  overflow: hidden;
+}

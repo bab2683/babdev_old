@@ -26,7 +26,7 @@
             "customWebpackConfig": {},
             "aot": false,
             "assets": ["apps/main/src/favicon.ico", "apps/main/src/assets"],
-            "styles": ["apps/main/src/styles.scss"],
+            "styles": ["apps/main/src/styles/main.scss"],
             "scripts": []
           },
           "configurations": {

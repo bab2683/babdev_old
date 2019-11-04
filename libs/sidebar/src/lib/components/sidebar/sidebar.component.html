@@ -1,1 +1,10 @@
-<button (click)="close()">Close</button>
+<section class="menu" #menu>
+  <babdev-sidebar-close></babdev-sidebar-close>
+</section>
+<section class="panel" #panel>
+  <ng-content></ng-content>
+</section>
+<babdev-sidebar-open
+  class="open-btn"
+  [ngClass]="{ 'open-btn--hidden': !(status$ | async) }"
+></babdev-sidebar-open>

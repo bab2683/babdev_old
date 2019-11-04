@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { SidebarService } from '../../sidebar.service';
 
 @Component({
-  selector: 'babdev-close',
+  selector: 'babdev-sidebar-close',
   templateUrl: './close.component.html',
   styleUrls: ['./close.component.scss']
 })
-export class CloseComponent implements OnInit {
+export class CloseComponent {
+  constructor(private sidebarService: SidebarService) {}
 
-  constructor() { }
-
-  ngOnInit() {
+  public close(): void {
+    this.sidebarService.close();
   }
-
 }

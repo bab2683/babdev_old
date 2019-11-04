@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { SidebarService } from '../../sidebar.service';
 
 @Component({
-  selector: 'babdev-open',
+  selector: 'babdev-sidebar-open',
   templateUrl: './open.component.html',
   styleUrls: ['./open.component.scss']
 })
-export class OpenComponent implements OnInit {
+export class OpenComponent {
+  constructor(private sidebarService: SidebarService) {}
 
-  constructor() { }
-
-  ngOnInit() {
+  public open(): void {
+    this.sidebarService.open();
   }
-
 }
