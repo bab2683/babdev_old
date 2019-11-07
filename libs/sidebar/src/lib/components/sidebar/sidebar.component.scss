@@ -1,7 +1,18 @@
+@import "~@babdev/styleguide/main";
+
+$default-sidebar-width: px-to-rem(256);
+
 .menu {
+  background-color: var(--babdev-sidebar-menu-background, $grey);
+  width: var(--babdev-sidebar-width, $default-sidebar-width);
+}
+
+.panel {
+  background-color: var(--babdev-sidebar-panel-background, $white);
 }
 
 .open-btn {
+  color: white;
   position: fixed;
   top: 5px;
   z-index: 1;
@@ -11,13 +22,8 @@
   }
 }
 
-.panel {
-  background-color: blue;
-}
-
 // SLIDEOUT STYLES
 .slideout-menu {
-  background-color: green;
   bottom: 0;
   display: none;
   left: 0;
@@ -26,7 +32,6 @@
   position: fixed;
   right: 0;
   top: 0;
-  width: 256px;
   z-index: 0;
 
   :host-context(.slideout-open) & {
@@ -45,4 +50,21 @@
 .slideout-open body,
 .slideout-open .slideout-panel {
   overflow: hidden;
+}
+
+@include from-mobile-up {
+  :host(.babdev-sidebar--responsive) {
+    .slideout-menu {
+      display: block;
+    }
+
+    .close-btn,
+    .open-btn {
+      display: none;
+    }
+
+    .panel {
+      margin-left: var(--babdev-sidebar-width, $default-sidebar-width);
+    }
+  }
 }

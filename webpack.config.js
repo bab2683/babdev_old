@@ -1,4 +1,6 @@
 const webpack = require('webpack');
+const path = require('path');
+
 const prefix = 'FIREBASE_MAPS_';
 
 const keys = Object.keys(process.env).filter(key => key.startsWith(prefix));
@@ -13,6 +15,11 @@ module.exports = config => {
     new webpack.DefinePlugin({
       ENV_VARS: env
     })
+  );
+
+  config.resolve.alias['@babdev/styleguide'] = path.join(
+    __dirname,
+    'libs/styleguide/src/lib/sass/'
   );
 
   return config;

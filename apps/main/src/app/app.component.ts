@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MOBILE_LIMIT } from '@constants';
 
 @Component({
   selector: 'babdev-root',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'main';
+  public responsiveLimit: number = MOBILE_LIMIT;
+  public title = 'main';
 }

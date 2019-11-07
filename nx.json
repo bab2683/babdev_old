@@ -16,6 +16,12 @@
     },
     "sidebar": {
       "tags": []
+    },
+    "styleguide": {
+      "tags": []
+    },
+    "utils": {
+      "tags": []
     }
   }
 }

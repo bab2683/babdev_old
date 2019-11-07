@@ -1,1 +1,15 @@
-{"extends":"../../tsconfig.json","compilerOptions":{"baseUrl":"../../","types":["node","jest"],"paths":{"@env/*":["apps/main/src/environments/*"],"@babdev/sidebar":["libs/sidebar/src/index.ts"]}},"include":["**/*.ts"]}
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "../../",
+    "types": ["node", "jest"],
+    "paths": {
+      "@env/*": ["apps/main/src/environments/*"],
+      "@constants": ["apps/main/src/constants/index.ts"],
+      "@babdev/sidebar": ["libs/sidebar/src/index.ts"],
+      "@babdev/styleguide": ["libs/styleguide/src/index.ts"],
+      "@babdev/utils": ["libs/utils/src/index.ts"]
+    }
+  },
+  "include": ["**/*.ts"]
+}

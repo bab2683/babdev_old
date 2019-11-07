@@ -1,0 +1,5 @@
+@import "~@babdev/styleguide/functions";
+
+:root {
+  --babdev-sidebar-width: #{px-to-rem(254)};
+}
