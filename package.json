@@ -82,7 +82,7 @@
     "jest-preset-angular": "7.0.0",
     "prettier": "^1.18.2",
     "rxjs-tslint-rules": "^4.26.1",
-    "stylelint": "^11.1.1",
+    "stylelint": "^15.10.1",
     "stylelint-order": "^3.1.1",
     "stylelint-selector-bem-pattern": "^2.1.0",
     "ts-jest": "24.0.0",
